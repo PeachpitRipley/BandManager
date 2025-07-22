@@ -300,6 +300,6 @@ See the folder [`/screenshots`](./screenshots) for example views of the BandMana
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 License**.  
 Commercial use is not permitted.
 
-=======
+---
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+This project was generated using Angular CLI version 19.1.4.
