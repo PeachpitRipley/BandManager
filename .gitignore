@@ -31,3 +31,6 @@
 
 # Windows thumbnail cache files
 Thumbs.db
+
+# Angular CLI cache folder
+.angular/
