@@ -1,0 +1,17 @@
+/* C:\Angular-Projects\BandManager\src\app\messages\messages.component.css
+    * Diese Datei enthält die CSS-Stile für die Nachrichten-Komponente.
+    * Sie definiert das Layout und das Aussehen der Nachrichtenliste und des Eingabefelds.
+    */
+
+.messages {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+input {
+  margin-right: 0.5rem;
+}
+
+button {
+  margin-right: 0.5rem;
+}
