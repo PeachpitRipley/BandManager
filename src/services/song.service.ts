@@ -6,7 +6,7 @@
 */
 
 import { Injectable } from '@angular/core';
-import { Song } from '../models/song';
+import { Song } from '../app/songs/song';
 
 @Injectable({
   providedIn: 'root'

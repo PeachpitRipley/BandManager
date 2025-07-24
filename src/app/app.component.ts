@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router'; // RouterOutlet ist für die Navigation zwischen Routen erforderlich
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true, // macht Komponente unabhängig von NgModule  
+  imports: [RouterModule],  // stellt <router-outlet> und routerLink bereit
+  template: `<router-outlet></router-outlet>`,  // ersetzt das Default-HTML
 })
-export class AppComponent {
-  title = 'temp-bm';
-}
+export class AppComponent {}
+
+
+

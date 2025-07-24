@@ -1,0 +1,31 @@
+.dashboard-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background: #1e1e2f;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar button.active {
+  background: #d6a400ce;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #f4f6fa;
+}

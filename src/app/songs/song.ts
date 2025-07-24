@@ -1,4 +1,4 @@
-// src/app/models/song.ts
+// \src\app\songs\song.ts
 
 /* Datemodell = Datenquelle */
 
