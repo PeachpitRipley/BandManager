@@ -1,54 +1,40 @@
 // src/app/services/song.service.ts
+// nutzt RxJS-Formular-Pattern
+
 
 /* Logik-Schicht für Songs:
-    kapselt alle Operationen (CRUD, Suche, Mock-Daten).
-    Komponenten fragen nie direkt nach Daten, sondern immer über diesen Service.
+    - kapselt alle Operationen (CRUD, Suche, Mock-Daten).
+    - führt CRUD-Operationen mit dem Backend durch.
+    - verwaltet die Daten und stellt sie den Komponenten zur Verfügung (Komponenten arbeiten nicht direkt mit HTTP-Requests / fragen nie direkt nach Daten, sondern immer über diesen Service.))
 */
 
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs'; // RxJS für reaktive Programmierung
+import { HttpClient } from '@angular/common/http';
+
 import { Song } from '../app/songs/song';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
-  // Beispiel-Daten
-  private songs: Song[] = [
-    { id: 1, title: 'Imagine', artist: 'John Lennon' },
-    { id: 2, title: 'Hey Jude', artist: 'The Beatles' },
-    { id: 3, title: 'Let It Be', artist: 'The Beatles' },
-  ];
-
-  constructor() { }
-
-  /** Alle Songs zurückgeben */
-  getAll(): Song[] {
-    return [...this.songs];
+  private apiUrl =  'http://localhost:3000/songs'; // Temporäres Backend                           später(?) >>> 'api/songs'; // URL zum Backend-API-Endpunkt
+  constructor(private http: HttpClient) { }   // Injektion des HttpClient für HTTP-Anfragen
+  
+  // HTTP-Requests für CRUD-Operationen  
+  getSongs(): Observable<Song[]> {
+    return this.http.get<Song[]>(this.apiUrl); // Holt alle Songs als Observable
   }
 
-  /** Einzelnen Song nach ID */
-  getById(id: number): Song | undefined {
-    return this.songs.find(song => song.id === id);
+  addSong(song: Song): Observable<Song> {
+    return this.http.post<Song>(this.apiUrl, song); // Fügt einen neuen Song hinzu
   }
 
-  /** Neuen Song anlegen */
-  add(song: Song): void {
-    this.songs.push({ ...song, id: this.generateId() });
+  deleteSong(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`); // Löscht einen Song nach ID
   }
 
-  /** Song aktualisieren */
-  update(updated: Song): void {
-    const idx = this.songs.findIndex(s => s.id === updated.id);
-    if (idx > -1) this.songs[idx] = { ...updated };
-  }
-
-  /** Song löschen */
-  delete(id: number): void {
-    this.songs = this.songs.filter(s => s.id !== id);
-  }
-
-  /** Neue ID generieren */
-  private generateId(): number {
-    return this.songs.length ? Math.max(...this.songs.map(s => s.id)) + 1 : 1;
+  updateSong(song: Song): Observable<Song> {
+    return this.http.put<Song>(`${this.apiUrl}/${song.title}`, song); // Aktualisiert einen bestehenden Song
   }
 }

@@ -1,1 +1,43 @@
 <p>songs works!</p>
+<div class="songs-container">
+    <main class="main-content">
+        <h1>Plattenregal</h1>
+        <p>Dies ist deine Songverwaltung.</p>
+    </main>
+
+    <!-- Formular für Song-Management-->
+    <form #songForm= "ngForm"(ngSubmit)="onSubmit()">
+
+        <!-- Titel -->
+        <label for="title">Titel:</label>
+        <input type="text" id="title"name="title" [(ngModel)]="currentSong.title" required >
+
+        <!-- Künstler -->
+        <label for="artist">Artist:</label>
+        <input
+            type="text"
+            id="artist"
+            name="artist"
+            [(ngModel)]="currentSong.artist"
+            required
+        />
+        
+        <!-- Album -->
+        <label for="album">Album:</label>
+        <input  type="text" id="album" [(ngModel)]="currentSong.album" name="album">
+
+         <!-- Buttons -->
+        <button type="submit" [disabled]="!songForm.form.valid">Song speichern</button>
+        <button type="button" (click)="updateSong()" [disabled]="!currentSong.id"> Song aktualisieren</button>
+        <button type="button" (click)="deleteSong()" [disabled]="!currentSong.id">Song löschen</button>
+    </form>
+
+    <!-- Songliste -->
+    <ul>
+        <li *ngFor="let song of songs" (click)="selectSong(song)">
+            {{ song.title }} by {{ song.artist }}
+        </li>
+    </ul>
+</div>
+
+    

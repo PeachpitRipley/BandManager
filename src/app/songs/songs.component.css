@@ -1,0 +1,31 @@
+.songs-container {
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+label {
+  display: block;
+  margin-top: 0.5rem;
+}
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+button {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+li:hover {
+  background: #f0f0f0;
+}
