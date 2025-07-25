@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router'; // RouterOutlet ist für die Navigation zwischen Routen erforderlich
+import { Component } from '@angular/core';            // = @Component-Dekorator
+import { CommonModule } from '@angular/common';       // für ngIf, ngFor, etc.
+import { RouterOutlet } from '@angular/router';       // für Routen-Templates
+
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true, // macht Komponente unabhängig von NgModule  
-  imports: [RouterModule],  // stellt <router-outlet> und routerLink bereit
-  template: `<router-outlet></router-outlet>`,  // ersetzt das Default-HTML
+  standalone: true,                   // macht Komponente unabhängig von NgModule  
+  imports: [
+    CommonModule,
+    RouterOutlet,           
+    SidebarComponent],      
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']                       
 })
 export class AppComponent {}
-
-
-

@@ -2,6 +2,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter }             from '@angular/router';
 import { AppComponent }              from './app.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -10,7 +11,8 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        AppComponent,              // standalone
+        AppComponent,
+        SidebarComponent
       ],
       providers: [
         provideRouter([])          // sorgt für Router + ActivatedRoute
@@ -28,6 +30,10 @@ describe('AppComponent', () => {
 
   it('should render a router-outlet', () => {
     expect(compiled.querySelector('router-outlet')).toBeTruthy();
+  });
+
+  it('should render the sidebar component', () => {
+    expect(compiled.querySelector('app-sidebar')).toBeTruthy();
   });
 });
 
