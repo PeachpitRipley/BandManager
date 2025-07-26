@@ -4,6 +4,15 @@
     <main class="main-content">
         <h1>Mischpult</h1>
   <p>Willkommen an Deinem Mischpult! Hier findest du eine Übersicht und Navigation zu den wichtigsten Funktionen.</p>
-
     </main>
   </div>
+
+  <section class="top-cards">
+  <app-card *ngFor="let song of top5">
+    <h3>{{ song.title }}</h3>
+    <p><em>{{ song.artist }}</em></p>
+    <p>Klicks: {{ song.clicks  }}</p>
+    <a [routerLink]="['/songs', song.id]">Details anzeigen</a>
+    <!-- … -->
+  </app-card>
+</section>

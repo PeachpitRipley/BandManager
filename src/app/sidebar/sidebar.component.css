@@ -1,3 +1,4 @@
+
 .app-layout {
   display: flex;
   height: 100vh;
@@ -9,8 +10,8 @@
 }
 .sidebar {
   width: 200px;
-  background: #1e1e2f;
-  padding: 1rem;
+  background: var(--color-sidebar);
+  padding: var(--space);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

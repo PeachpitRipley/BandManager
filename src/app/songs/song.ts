@@ -1,20 +1,14 @@
 // \src\app\songs\song.ts
-
 /* Datemodell = Datenquelle */
 
 export interface Song {
-  /** Eindeutige ID */
-  id?: number;
-  /** Titel des Songs */
-  title: string;
-  /** Name des Künstlers oder der Band */
+  
+  id?: number;      /** optional, wird bei der Bearbeitung automatisch generiert */ 
+  title: string;   
   artist: string;
-  /** Name des Albums */
   album: string;
-  /** Optional: Songtexte (Lyrics) */
   lyrics?: string;
-  /** Optional: Akkorde oder Chord-Diagramme */
   chords?: string;
-  /** Optional: Noten als URL oder im Textformat */
   sheetMusicUrl?: string;
+  clicks?: number; 
 }
