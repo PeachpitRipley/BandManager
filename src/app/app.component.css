@@ -1,9 +1,44 @@
+/* main.content: Hauptinhalt der App */
+
 .app-layout {
-  display: flex;
-  height: 100vh;      /* Vollbild-Höhe */
+  display: flex;            /* Flexbox-Layout */
+  min-height: 100vh;        /* Mindestens volle Höhe des Viewports */
 }
 .main-content {
-  flex: 1;            /* Nimmt den verbleibenden Platz ein */
-  padding: 1rem;
-  overflow-y: auto;   /* Scrollbar bei Überlauf */
+  flex: 1;                   /* Nimmt den verbleibenden Platz ein */
+  padding: var(--space-l);  /* Abstand um Inhalt herum */
+  display: grid;             /* Grid-Layout für den Hauptinhalt */
+  grid-template-rows: auto 1fr;   /* Header oben, flexibler Inhalt unten */
+  row-gap: var(--space-l);   /* Abstand zwischen Zeilen */
+  max-width: 1200px;         /* Inhalt max 1200px breit*/
+  margin: 0 auto;            /* zentriert horizontal */
+  background: var(--color-background); /* Hintergrundfarbe */
+}
+
+/* Styles für Header */
+.page-header {
+  display: flex;               /* Flexbox für Header */
+  flex-direction: column;      /* Weißer Text */
+  gap: var(--space-xs);        /* Abstand zwischen Elementen */
+  margin-bottom: var(--space); /* Abstand nach unten */
+}
+
+.page-header h1 {
+  margin: 0;
+  color: var(--color-primary); /* Primärfarbe für Titel */
+  font-size: 2rem;             /* Größerer Titel */ 
+}
+
+/* Styles für Breadcrumbs */
+.breadcrumbs {
+  font-size: 0.875rem;         /* Kleinere Schriftgröße */
+}
+
+.breadcrumbs a {
+  text-decoration: none;       /* Keine Unterstreichung */
+  color: var(--color-text);    /* Textfarbe */
+  opacity: 0.7;                /* Leicht transparent */
+}
+.breadcrumbs span {
+  margin: 0 var(--space-xs); /* Abstand zwischen Breadcrumbs */
 }
