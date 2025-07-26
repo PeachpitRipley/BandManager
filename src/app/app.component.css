@@ -1,0 +1,9 @@
+.app-layout {
+  display: flex;
+  height: 100vh;      /* Vollbild-Höhe */
+}
+.main-content {
+  flex: 1;            /* Nimmt den verbleibenden Platz ein */
+  padding: 1rem;
+  overflow-y: auto;   /* Scrollbar bei Überlauf */
+}

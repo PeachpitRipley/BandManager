@@ -1,0 +1,10 @@
+.dashboard-container {
+  display: flex;
+}
+
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #f4f6fa;
+}

@@ -1,0 +1,45 @@
+<!-- C:\Angular-Projects\BandManager\src\app\messages\messages.component.html -->
+
+<!-- This is the messages component template for displaying and managing messages.
+It includes an input field for entering messages, a button to add messages, and a button to clear all messages.
+The component uses two-way data binding for the input field and calls methods from the MessagesService to add and clear messages.
+The component is designed to be simple and user-friendly, allowing users to easily manage their messages.
+-->
+
+<p>messages works!</p>
+
+<!--- <input [(ngModel)]="messageText" placeholder="Nachricht eingeben" />
+<button (click)="addMessage(messageText); messageText = ''">Hinzufügen</button>
+
+--->
+
+<div class = "messages">
+    <h2>Nachrichten</h2>
+
+    <!-- 1) ngModel an property messageText binden -->
+    <input
+        [(ngModel)]="messageText"
+        name="messageText"
+        placeholder="Nachricht eingeben"/>
+
+     <!-- 2)  -->
+    <button (click)="addMessage(messageText); messageText= ''">Hinzufügen</button>
+
+    <!-- 3) clearMessages ruft Methode von Service auf -->
+    <button (click)="clearMessages()">löschen</button>
+
+    <ul>
+        <!-- 4) *ngFor iteriert über die Nachrichten und zeigt sie an -->
+        <li *ngFor="let message of messages">{{ message }}</li>
+    </ul>
+</div>
+
+
+<!-- 
+    1) Two-Way-binding / Component Property Binding:
+        Eingabefeld ist an Property messageText gebunden.
+        Damit werden Änderungen automatischin der Komponente reflektiert.
+      
+      Trennt UI-Logik (Input-Binding) und Geschäfts­logik (addMessage)
+  -->
+    
